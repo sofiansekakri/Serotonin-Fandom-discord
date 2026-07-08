@@ -1,0 +1,30 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "crazylosthismind",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@napi-rs/canvas": "^1.0.0",
+    "axios": "^1.4.0",
+    "axios-cookiejar-support": "^6.0.5",
+    "child_process": "^1.0.2",
+    "classical-cipher": "^0.0.3",
+    "discord": "^0.8.2",
+    "discord.js": "^14.25.1",
+    "fs": "^0.0.1-security",
+    "jsdom": "^28.1.0",
+    "mediawiki": "^0.0.14",
+    "node-cron": "^4.2.1",
+    "nodemw": "^0.26.0",
+    "tough-cookie": "^6.0.1",
+    "undici": "^7.28.0",
+    "youtube-dl-exec": "^3.1.8"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "owner": "userIDHere",
+  "maintainer": "userIDHere",
+  "main": [
+    "userIDHere"
+  ],
+  "cmod": [
+    "userIDHere"
+  ],
+  "rollback": [
+    "userIDHere"
+  ],
+  "guilds": {
+    "blacklist": [
+      "blacklistedGuildIDHere"
+    ],
+    "memes_blacklist": [
+      "guildIDHere"
+    ],
+    "quotes_blacklist": [
+      "guildIDHere"
+    ]
+  },
+  "localConfig": {
+    "guildIDHere": {
+      "wiki": "community",
+      "lang": "en",
+      "whitelist": {
+        "main": [
+          "userIDHere"
+        ],
+        "cmod": [
+          "userIDHere"
+        ],
+        "rollback": [
+          "userIDHere"
+        ]
+      },
+      "blacklist": []
+    }
+  },
+  "blacklist": [
+    "blacklistedUserIDHere"
+  ]
+}
