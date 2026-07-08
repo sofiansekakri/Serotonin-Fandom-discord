@@ -37,19 +37,7 @@ module.exports = {
                 interaction.options.getUser('user_2')
             ];
 
-            let rnd = randomInt(0, 100);
-
-            if (
-                (users[0].id === "823284522162192454" && users[1].id === "909791466010845244") ||
-                (users[1].id === "823284522162192454" && users[0].id === "909791466010845244")
-            ) {
-                rnd = randomInt(38, 100);
-            }
-            if ((users[0].id === "966522453230759998" && users[1].id === "1125277035078615051") ||
-                (users[1].id === "966522453230759998" && users[0].id === "1125277035078615051")
-            ) {
-                rnd = randomInt(80, 100);
-            }
+            const rnd = randomInt(0, 100);
 
             const canvas = Canvas.createCanvas(700, 250);
             const ctx = canvas.getContext('2d');
