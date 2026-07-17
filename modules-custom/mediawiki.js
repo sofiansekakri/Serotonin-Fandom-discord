@@ -14,8 +14,20 @@ module.exports = {
         async parseContent() {
             const response = await fetch(this.api, {
                 method: 'POST',
-                headers: {}
+                headers: {},
+                body: new URLSearchParams({
+                    action: 'parse',
+                    format: 'json',
+                    text: this.content,
+                    title: this.title ?? ''
+                })
             });
+            const data = await response.json();
+            if (!data || typeof data !== 'object' || !data.parse || !data.parse.text || !data.parse.text['*']) {
+                throw new Error('Failed to parse content. Invalid response from API.');
+            }
+            const res = data.parse?.text?.['*'];
+            return res;
         }
     }
 };
