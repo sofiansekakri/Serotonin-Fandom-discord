@@ -1,0 +1,7 @@
+{
+    "username": "botUserName",
+    "password": "botPassword",
+    "wiki":"https://community.fandom.com",
+    "secpassword" : "secPassword",
+    "secusername" : "secUsername"
+}

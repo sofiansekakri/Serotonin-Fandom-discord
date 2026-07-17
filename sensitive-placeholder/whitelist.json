@@ -1,0 +1,58 @@
+{
+  "owner": "User ID of the bot owner",
+  "maintainer": "User ID of the bot maintainer",
+  "main": [
+    "User ID of a main user",
+    "User ID of another main user",
+    "User ID of a third main user"
+  ],
+  "cmod": [
+    "User ID of a cmod user",
+    "User ID of another cmod user"
+  ],
+  "rollback": [
+    "User ID of a rollback user"
+  ],
+  "guilds": {
+    "blacklist": [
+      "User ID of a blacklisted guild",
+      "User ID of another blacklisted guild"
+    ],
+    "memes_blacklist": [
+      "User ID of a memes blacklisted guild"
+    ],
+    "quotes_blacklist": [
+      "User ID of a quotes blacklisted guild"
+    ]
+  },
+  "localConfig": {
+    "GuildID": {
+      "wiki": "wikiname",
+      "lang": "en",
+      "whitelist": {
+        "main": [
+          "User ID of a main user",
+          "User ID of another main user",
+          "User ID of a third main user"
+        ],
+        "cmod": [
+          "User ID of a cmod user",
+          "User ID of another cmod user",
+          "User ID of a third cmod user"
+        ],
+        "rollback": [
+          "User ID of a rollback user",
+          "User ID of another rollback user"
+        ]
+      },
+      "blacklist": []
+    }
+  },
+  "blacklist": [
+    "User ID of a blacklisted user",
+    "User ID of another blacklisted user",
+    "User ID of a third blacklisted user",
+    "User ID of a fourth blacklisted user",
+    "User ID of a fifth blacklisted user"
+  ]
+}
