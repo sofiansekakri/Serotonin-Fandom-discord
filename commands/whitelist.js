@@ -21,7 +21,7 @@ module.exports = {
             str += `<@${id}>\n`;
         }
         if (whitelist.rollback.length > 0) {
-            str += '\n**Rollback Access**\n';
+            str += '\n**Global Rollback Access**\n';
         }
         for (const id of whitelist.rollback) {
             str += `<@${id}>\n`;
