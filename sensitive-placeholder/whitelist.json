@@ -54,5 +54,9 @@
     "User ID of a third blacklisted user",
     "User ID of a fourth blacklisted user",
     "User ID of a fifth blacklisted user"
+  ],
+  "logChannels": [
+    "Channel ID of a log channel",
+    "Channel ID of another log channel"
   ]
 }

@@ -50,14 +50,11 @@
             }
         );
         const memes = fs.readdirSync('./assets/memes/').filter(file => file.endsWith('.jpg') || file.endsWith('.png') || file.endsWith('.jpeg') || file.endsWith('.gif') || file.endsWith('.webp') || file.endsWith('mp4') || file.endsWith('.webm') || file.endsWith('.mov'));
-               
         const guilds = client.guilds.cache.map(guild => `**${guild.id}** (**${guild.name}**): **<@${guild.ownerId}>**`);
-        client.channels.cache.get('1510297407936532640').send(`${startup.replace('[SYS]', '**[SYS]**')}**[CLIENT]** Logged in as ${readyClient.user.tag} (${readyClient.user.id}); Serving ${guilds.length} guilds.\n**[CLIENT]** Loaded ${memes.length} memes.\n`);
-        client.channels.cache.get('1510297407936532640').send({ embeds: [new EmbedBuilder().setTitle(`Guilds: ${guilds.length}`).setDescription(`${guilds.join(', ')}`)] });
-
-
-        client.channels.cache.get('1527765589462876280').send(`${startup.replace('[SYS]', '**[SYS]**')}**[CLIENT]** Logged in as ${readyClient.user.tag} (${readyClient.user.id}); Serving ${guilds.length} guilds.\n**[CLIENT]** Loaded ${memes.length} memes.\n`);
-        client.channels.cache.get('1527765589462876280').send({ embeds: [new EmbedBuilder().setTitle(`Guilds: ${guilds.length}`).setDescription(`${guilds.join(', ')}`)] });
+        for (const channel of whitelist.logChannels) {
+            client.channels.cache.get(channel).send(`${startup.replace('[SYS]', '**[SYS]**')}**[CLIENT]** Logged in as ${readyClient.user.tag} (${readyClient.user.id}); Serving ${guilds.length} guilds.\n**[CLIENT]** Loaded ${memes.length} memes.\n`);
+            client.channels.cache.get(channel).send({ embeds: [new EmbedBuilder().setTitle(`Guilds: ${guilds.length}`).setDescription(`${guilds.join(', ')}`)] });
+        }
         //console.log('Guild Amount:', guilds.length);
 
         //console.log('Attempting to obtain Fandom Login Token.');
@@ -337,12 +334,10 @@
                 if (err) console.error(err);
             }
         );
-        client.channels.cache.get('1510297407936532640')
-            .send(`**[CMD]** /**${interaction.commandName}** UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Options: \`\`\`js\n${JSON.stringify(interaction.options.data)}\n\`\`\``);
-
-        client.channels.cache.get('1527765589462876280')
-            .send(`**[CMD]** /**${interaction.commandName}** UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Options: \`\`\`js\n${JSON.stringify(interaction.options.data)}\n\`\`\``);
-        
+        for (const channel of whitelist.logChannels) {
+            client.channels.cache.get(channel)
+                .send(`**[CMD]** /**${interaction.commandName}** UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Options: \`\`\`js\n${JSON.stringify(interaction.options.data)}\n\`\`\``);
+        }
         const Whitelist = JSON.parse(fs.readFileSync('./sensitive/whitelist.json', 'utf8'));
         const command = client.commands.get(interaction.commandName);
 
@@ -377,12 +372,11 @@
                     if (err) console.error(err);
                 }
             );
-
-            client.channels.cache.get('1510297407936532640')
-                .send(`**[ERR]** \`${error.message}\` UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Command: /**${interaction.commandName}**`);
-            client.channels.cache.get('1527765589462876280')
-                .send(`**[ERR]** \`${error.message}\` UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Command: /**${interaction.commandName}**`);
-            });
+            for (const channel of whitelist.logChannels) {
+                client.channels.cache.get(channel)
+                    .send(`**[ERR]** \`${error.message}\` UserID: **${interaction.user.id}**, UserTag: **${interaction.user.tag}**, GuildID: **${interaction.guildId}**, Command: /**${interaction.commandName}**`);
+            }
+        });
         /*
         const wiki = wrapper(axios.create({
             jar: new tough.CookieJar(),
