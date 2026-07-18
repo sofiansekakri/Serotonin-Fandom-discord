@@ -7,7 +7,7 @@ module.exports = {
         .addStringOption(option => option.setName('serverid').setDescription('The ID of the server to delete the local config for.').setRequired(false)),
 
     async execute(interaction) {
-        await interaction.deferReply();
+        await interaction.deferReply({ ephemeral: true });
         const whitelist = JSON.parse(fs.readFileSync('./sensitive/whitelist.json', 'utf8'));
         if (!whitelist.main.includes(String(interaction.user.id)) && !(interaction.guildOwnerId === interaction.user.id)) {
             await interaction.editReply({ content: 'You are not permitted to delete local configs.' });
