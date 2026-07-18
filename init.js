@@ -363,7 +363,7 @@
         interaction.reply = interaction.editReply;
         */
         await command.execute(interaction).catch((error) => {
-            console.error(error);
+            console.error(error.message);
 
             fs.appendFile(
                 path.join(__dirname, 'logs/cmds.log'),
