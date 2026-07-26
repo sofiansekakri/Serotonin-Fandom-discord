@@ -98,5 +98,24 @@ module.exports = {
     randomItem: function(items = []) {
         if (!Array.isArray(items)) throw new TypeError('use an array.');
         return items[Math.floor(Math.random() * items.length)];
+    },
+    Matrix: class Matrix {
+        constructor(dimensions) {
+            if (typeof dimensions !== 'number' || !Number.isInteger(dimensions) || dimensions <= 0) {
+                throw new TypeError('Dimensions must be a positive integer.');
+            }
+            this.data = { values: {  }, dimensions: dimensions };
+        }
+        set(...values, name) {
+            if (values.length !== this.data.dimensions) {
+                throw new TypeError(`Expected ${this.data.dimensions} values, but got ${values.length}.`);
+            }
+            for (const value of values) {
+                if (typeof value !== 'number') {
+                    throw new TypeError('All values must be numbers.');
+                }
+            }
+            this.data.values[name] = values;
+        }
     }
 }
