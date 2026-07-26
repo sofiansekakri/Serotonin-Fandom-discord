@@ -46,11 +46,14 @@ module.exports = {
                 rnd = randomInt(38, 100);
             }
             if ((users[0].id === "966522453230759998" && users[1].id === "1125277035078615051") ||
-                (users[1].id === "966522453230759998" && users[0].id === "1125277035078615051")
+                (users[1].id === "966522453230759998" && users[0].id === "1125277035078615051") ||
+                (users[0].id === "191550896935665664" && users[1].id === "191530044491956224")  ||   
+                (users[1].id === "191550896935665664" && users[0].id === "191530044491956224")  ||
+                (users[0].id === "1492314004918636716" && users[1].id === "966522453230759998")  ||
+                (users[1].id === "1492314004918636716" && users[0].id === "966522453230759998")
             ) {
                 rnd = randomInt(80, 100);
             }
-
             const canvas = Canvas.createCanvas(700, 250);
             const ctx = canvas.getContext('2d');
 
@@ -145,7 +148,7 @@ module.exports = {
             });
 
             return await interaction.editReply({
-                content: `${rnd}% ❤️`,
+                content: `${rnd}% ${rnd > 50 ? '❤️' : rnd < 50 ? '💔' : '<a:crunchy:1493843049011351683>'}`,
                 files: [attachment]
             });
 
