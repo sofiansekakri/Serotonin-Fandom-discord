@@ -106,7 +106,7 @@ module.exports = {
             }
             this.data = { values: {  }, dimensions: dimensions };
         }
-        set(...values, name) {
+        set(name, ...values) {
             if (values.length !== this.data.dimensions) {
                 throw new TypeError(`Expected ${this.data.dimensions} values, but got ${values.length}.`);
             }

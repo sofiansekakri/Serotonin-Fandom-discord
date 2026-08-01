@@ -364,7 +364,11 @@
         */
         await command.execute(interaction).catch((error) => {
             console.error(error.message);
-
+            if (interaction.deferred || interaction.replied) {
+                interaction.editReply({ content: `There was an error while executing this command: \`${error.message.replace(/(password|token)/g, '')}\``, ephemeral: true });
+            } else {
+                interaction.reply({ content: `There was an error while executing this command: \`${error.message.replace(/(password|token)/g, '')}\``, ephemeral: true });
+            }
             fs.appendFile(
                 path.join(__dirname, 'logs/cmds.log'),
                 `[ERR] ${error.message} UserID: ${interaction.user.id}, UserTag: ${interaction.user.tag}, GuildID: ${interaction.guildId}, Command: /${interaction.commandName}\n`,
